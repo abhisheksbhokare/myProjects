@@ -1,0 +1,64 @@
+
+<div class="container">
+  <form [formGroup]="fileuploaderform" name="fileuploaderform">
+    <div class="col-7">
+        <div class="drop-container"
+        ngFileDrop
+        [options]="options"
+        (uploadOutput)="onUploadOutput($event)"
+        [uploadInput]="uploadInput"
+        [ngClass]="{ 'is-drop-over': dragOver }"
+        >
+        <h3>Drop files to attach</h3>
+      </div>
+      
+      <label class="upload-button">
+        <input
+          type="file"
+          formControlName="fileupload"
+          ngFileSelect
+          [options]="options"
+          (uploadOutput)="onUploadOutput($event)"
+          [uploadInput]="uploadInput"
+          multiple
+        />
+      </label>
+
+      <hr>
+      <ul>
+        <li  *ngFor="let file of files; let i = index">
+          <span (click)="onFileDelete(i)" class="btnClose">X</span>
+          <p class="filename">{{file.file.name}}</p>
+          <p class="filesub">{{file.file.sub}}</p>
+          <p class="filesize">{{file.file.size}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </form>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Description</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Description</label>
+        <div class="input-group">
+          <input id="fileDes" [(ngModel)]="fileDes" class="form-control" name="dp" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+

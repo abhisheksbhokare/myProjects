@@ -1,0 +1,36 @@
+.drop-container{margin: 20px 0px;
+    margin: 20px 0px;
+    padding: 15px;
+    text-align: center;
+    border: 4px dotted #d2d2d2;
+    border-radius: 10px;
+    color: #969696;
+    margin-bottom: 30px;
+}
+ul{
+    list-style:none;
+    padding: 0px;
+}
+li{
+    border: 2px dotted #ccc;
+    padding: 0px 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+li p.filename{
+    font-size: 18px;
+}
+li p.filesub{
+    font-size: 15px;
+}
+li p.filesize{
+    font-size: 12px;
+}
+.btnClose{
+    position: absolute;
+    top:10px;
+    right:10px;
+    cursor:pointer;
+}
